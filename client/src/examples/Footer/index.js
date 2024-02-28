@@ -59,7 +59,7 @@ function Footer({ company, links }) {
         color={"text"}
         fontSize={size.sm}
       >
-        &copy; {new Date().getFullYear()}, made with pain by
+        &copy; {new Date().getFullYear()}, by
         {/* <MDBox fontSize={size.md} color={light ? "white" : "dark"} mb={-0.5} mx={0.25}>
               <Icon color="inherit" fontSize="inherit">
                 favorite
@@ -67,10 +67,10 @@ function Footer({ company, links }) {
             </MDBox> */}
         <Link href="" target="_blank">
           <MDTypography variant="button" fontWeight="medium" color={"dark"}>
-            &nbsp;Anand, Divyansh & Rahul&nbsp;
+            &nbsp;Jarvis&nbsp;
           </MDTypography>
         </Link>
-        for petty grades.
+       
       </MDBox>
     </MDBox>
   );

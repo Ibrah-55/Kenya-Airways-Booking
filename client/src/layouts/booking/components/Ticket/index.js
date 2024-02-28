@@ -65,7 +65,7 @@ function Ticket({
         justifyContent={"center"}
       >
         <MDTypography fontWeight="bold" fontSize="medium">
-          SRC&nbsp;-&nbsp;
+          FROM&nbsp;-&nbsp;
         </MDTypography>
         <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
           {`${srcCity}`}
@@ -81,7 +81,7 @@ function Ticket({
         justifyContent={"center"}
       >
         <MDTypography fontWeight="bold" fontSize="medium">
-          DEST&nbsp;-&nbsp;
+          DESTINATION&nbsp;-&nbsp;
         </MDTypography>
         <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
           {`${destCity}`}

@@ -57,7 +57,7 @@ function TicketInformation({ isUpcoming }) {
     axios
       .get(url)
       .then((res) => {
-        // console.log("RES");
+         console.log("RES");
         console.log(res.data.data);
         setTickets(
           res.data.data.sort((a, b) =>

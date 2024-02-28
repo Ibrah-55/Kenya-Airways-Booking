@@ -10,13 +10,13 @@ import app from "./app.js";
 Database.init();
 
 const server = app.listen(PORT, () => {
-  console.log(`server is running on ${PORT} ...`);
+  console.log(`server is now running on ${PORT} ...`);
 });
 
 process.on("unhandledRejection", (err) => {
   console.log("UNHANDLED REJECTION! 💥 Shutting down...");
   console.log(err);
-  console.log(err.name, err.message);
+  console.log(err.name ? err.name : "Unknown Error", err.message);
   server.close(() => {
     process.exit(1);
   });

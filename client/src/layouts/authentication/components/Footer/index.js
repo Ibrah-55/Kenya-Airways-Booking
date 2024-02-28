@@ -28,7 +28,7 @@ function Footer({ light }) {
             color={light ? "white" : "text"}
             fontSize={size.sm}
           >
-            &copy; {new Date().getFullYear()}, made with pain by
+            &copy; {new Date().getFullYear()}, by
             {/* <MDBox fontSize={size.md} color={light ? "white" : "dark"} mb={-0.5} mx={0.25}>
               <Icon color="inherit" fontSize="inherit">
                 favorite
@@ -40,10 +40,10 @@ function Footer({ light }) {
                 fontWeight="medium"
                 color={light ? "white" : "dark"}
               >
-                &nbsp;Anand, Divyansh & Rahul&nbsp;
+                &nbsp;Jarvis&nbsp;
               </MDTypography>
             </Link>
-            for petty grades.
+            
           </MDBox>
         </MDBox>
       </Container>

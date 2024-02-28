@@ -6,30 +6,33 @@ export const getAllFlights = catchAsync(async (req, res, next) => {
   const resp = await db.executeQuery(`CALL SHOW_FLIGHT_PATH_FOR_ADMIN`);
 
   res.status(200).json({
-    status: "success",
+    status: "success get all flights",
     data: resp.data[0],
   });
 });
 
 export const getFlightsBetweenAirports = catchAsync(async (req, res, next) => {
-  let cid = "lm2"; // DEFAULT USER ID
+  let cid = "lm2"; 
   if (req.user) {
     cid = req.user.CUSTOMER_ID;
   }
   const query = `CALL SHOW_FLIGHTS(
     '${cid}', 
     '${req.params.srcId}', 
-    '${req.params.destId}', 
-    '${req.params.dateOfDeparture}'
+    '${req.params.destId}',
+    NOW() -- or any other default value you want to use
   ) `;
+  
   const resp = await db.executeQuery(query);
+  console.log('Query Response:', resp);
 
-  console.log(resp.data[0]);
   res.status(200).json({
-    status: "success",
+    status: "success getflightsbetweenairports",
     data: resp.data[0],
   });
+  console.log(resp.data[0])
 });
+
 
 export const addFlight = catchAsync(async (req, res, next) => {
   const query = `CALL ADD_FLIGHT_PATH_FOR_ADMIN ( 

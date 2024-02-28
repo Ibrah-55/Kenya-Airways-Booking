@@ -115,7 +115,7 @@ function DefaultNavbar({ transparent, light, action }) {
             fontWeight="bold"
             color={light ? "white" : "dark"}
           >
-            Monke Airlines
+            Kenya Airways
           </MDTypography>
         </MDBox>
         <MDBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>

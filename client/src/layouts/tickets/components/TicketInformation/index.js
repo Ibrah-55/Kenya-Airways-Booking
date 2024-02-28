@@ -10,6 +10,9 @@ import moment from "moment";
 import axios from "axiosInstance";
 
 function TicketInformation(props) {
+  console.log('Ticket component received props:', props);
+ 
+  
   const [activeDate, setActiveDate] = React.useState(0);
   const [fdates, setFdates] = useState([]);
   const [flights, setFlights] = useState([]);
@@ -42,11 +45,15 @@ function TicketInformation(props) {
     setActiveDate(idx);
     setFdates(dates);
     filterByDate(dates[idx]);
+    console.log('props.flights:', props.flights);
+    console.log('fdates:', fdates);
+    console.log('flights:', flights);
   }, [props.flights]);
 
   return (
     // <Card id="delete-account">
     <>
+
       {props.flights.length === 0 ? (
         <MDBox
           pt={3}
@@ -58,10 +65,10 @@ function TicketInformation(props) {
             alignItems: "center",
           }}
         >
-          <MDTypography variant="h3">Welcome!</MDTypography>
+          <MDTypography variant="h3">WELCOME TO KENYA AIRWAYS!</MDTypography>
           <MDTypography variant="h4" fontWeight="light">
-            Book your next flight NOW.
-          </MDTypography>
+The Pride Of Africa   
+       </MDTypography>
         </MDBox>
       ) : (
         <>
@@ -128,6 +135,7 @@ function TicketInformation(props) {
                   srcOffset={props.srcOffset}
                   destOffset={props.destOffset}
                 />
+
               ))}
             </MDBox>
           </MDBox>

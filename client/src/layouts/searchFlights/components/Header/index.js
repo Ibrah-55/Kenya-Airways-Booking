@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Flight from "@mui/icons-material/Flight";
-import { InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField, Typography } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -56,17 +56,19 @@ function Header({ children, airports }) {
   }, []);
 
   const handleSearch = () => {
-    // console.log(moment(dateValue).format());
     setLoading(true);
+  
     axios
       .get(
         `flight/${source.AIRPORT_ID}/${destination.AIRPORT_ID}/${moment(
           dateValue
-        ).format()}`
+        ).format("YYYY-MM-DD")}`
       )
       .then((res) => {
+        console.log("API Response:", res.data);
+  
         setFlights(res.data.data);
-
+  
         setLoading(false);
         console.log(res);
       })
@@ -75,7 +77,7 @@ function Header({ children, airports }) {
         console.log(err);
       });
   };
-
+  
   const cancelFlight = (flightDateId) => {
     setLoading(true);
     let currFlight = null;
@@ -212,7 +214,7 @@ function Header({ children, airports }) {
                   value={source}
                   onChange={(e, value) => setSource(value)}
                   renderInput={(params) => (
-                    <MDInput {...params} placeholder="SRC." />
+                    <MDInput {...params} placeholder="FROM" />
                   )}
                 />
               </MDBox>
@@ -252,7 +254,7 @@ function Header({ children, airports }) {
                   value={destination}
                   onChange={(e, value) => setDestination(value)}
                   renderInput={(params) => (
-                    <MDInput {...params} placeholder="DEST." />
+                    <MDInput {...params} placeholder="DESTINATION" />
                   )}
                 />
               </MDBox>
@@ -333,20 +335,24 @@ function Header({ children, airports }) {
             <Spinner />
           </MDBox>
         ) : (
-          <TicketInformation
-            flights={flights}
-            destCity={`${destination?.CITY}`}
-            srcOffset={offset.get(source?.AIRPORT_ID)}
-            destOffset={offset.get(destination?.AIRPORT_ID)}
-            srcCity={`${source?.CITY}`}
-            srcID={source?.AIRPORT_ID}
-            destID={destination?.AIRPORT_ID}
-            cancelFlight={cancelFlight}
-            addDelay={addDelay}
-            date={moment(dateValue).format()}
-            srcOffset={source?.OFFSET}
-            destOffset={destination?.OFFSET}
-          ></TicketInformation>
+          <>
+            <Typography variant="h4">Flight Details: {console.log()}</Typography>
+            
+            <TicketInformation
+              flights={flights}
+              destCity={`${destination?.CITY}`}
+              srcOffset={offset.get(source?.AIRPORT_ID)}
+              destOffset={offset.get(destination?.AIRPORT_ID)}
+              srcCity={`${source?.CITY}`}
+              srcID={source?.AIRPORT_ID}
+              destID={destination?.AIRPORT_ID}
+              cancelFlight={cancelFlight}
+              addDelay={addDelay}
+              date={moment(dateValue).format()}
+              srcOffset={source?.OFFSET}
+              destOffset={destination?.OFFSET}
+            />
+          </>
         )}
       </Card>
     </MDBox>

@@ -13,7 +13,6 @@ import customerRouter from "./routes/customerRouter.js";
 import ticketRouter from "./routes/ticketRouter.js";
 import flightRouter from "./routes/flightRouter.js";
 import airportRouter from "./routes/airportRouter.js";
-
 const app = express();
 
 app.use(cors());
@@ -21,7 +20,6 @@ app.use(helmet());
 
 app.use(express.json());
 app.use(cookieParser());
-//REQUEST LOGGER
 if (NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }

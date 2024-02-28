@@ -1,7 +1,7 @@
 <div align="center">
 
   <img src="client/src/assets/images/logos/logo.png" alt="logo" width="300" height="auto" />
-  <h1>Monke Airlines</h1>
+  <h1>KENYA AIRWAYS</h1>
   
   <p>
     

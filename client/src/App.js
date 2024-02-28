@@ -11,7 +11,7 @@ import {
   setMiniSidenav,
   setOpenConfigurator,
 } from "context";
-import brandWhite from "assets/images/logos/logo.png";
+import brandWhite from "assets/images/kq.png";
 import axios from "axiosInstance";
 import AuthContext from "authContext";
 
@@ -146,7 +146,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={brandWhite}
-            brandName="Monke Airlines"
+            brandName="Kenya Airways"
             routes={navbarRoutes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
