@@ -245,7 +245,7 @@ function Ticket({
           alignItems="center"
           flexDirection={"column"}
         >
-          <MDTypography fontWeight="bold">&#8377; {fare}</MDTypography>
+          <MDTypography fontWeight="bold">Ksh {fare}</MDTypography>
         </Grid>
 
         <Grid

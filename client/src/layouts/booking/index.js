@@ -7,7 +7,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import MDButton from "components/MDButton";
 import { EventSeat, EventSeatOutlined } from "@mui/icons-material";
-import { Divider, IconButton } from "@mui/material";
+import { Divider,FormControl,MenuItem, Select, IconButton } from "@mui/material";
 import MDInput from "components/MDInput";
 import { useEffect, useState, useContext } from "react";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
@@ -25,6 +25,10 @@ const Booking = () => {
   const [cost, setCost] = useState(0);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [selectedLevel, setSelectedLevel] = useState('economy');
+  const handleLevelChange = (event) => {
+    setSelectedLevel(event.target.value);
+  };
 
   const disablePay = () => {
     let shouldDisable = false;
@@ -192,6 +196,32 @@ const Booking = () => {
       <Grid item display="flex" spacing={1} mt={3}>
         <MDTypography fontWeight="bold">Reserve your seat</MDTypography>
       </Grid>
+      <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <FormControl>
+      <MDTypography fontWeight="bold" fontSize="medium">
+          Seat Class -&nbsp;
+        </MDTypography>
+        <Select
+          labelId="level-label"
+          id="level-select"
+          value={selectedLevel}
+          label="Level"
+          onChange={handleLevelChange}
+        >
+          <MenuItem value={'economy'}>Economy</MenuItem>
+          <MenuItem value={'firstClass'}>First Class</MenuItem>
+          <MenuItem value={'vvip'}>VVIP</MenuItem>
+        </Select>
+      </FormControl>
+    </Grid>
 
       {seatData.map((dataRow, rowIdx) => (
         <Grid item display="flex" spacing={1} key={rowIdx}>
@@ -317,6 +347,7 @@ const Booking = () => {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+     
       {location.state !== null ? (
         <MDBox pt={6} pb={3}>
           <Grid container spacing={6}>
@@ -419,7 +450,7 @@ const Booking = () => {
                               disabled={disablePay()}
                               onClick={bookTickets}
                             >
-                              {`PAY: `} &#8377;{`${cost}`}
+                              {`PAY: `} Ksh{`${cost}`}
                             </MDButton>
                           </Grid>
                           {/* &nbsp; */}

@@ -116,7 +116,7 @@ function Ticket({
           FARE&nbsp;-&nbsp;
         </MDTypography>
         <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
-          &#8377; {`${fare}`}
+        {`${fare}`}
         </MDTypography>
       </Grid>
     </Grid>
@@ -275,7 +275,7 @@ function Ticket({
           <MDTypography variant="h6" fontWeight="regular">
             FARE
           </MDTypography>
-          <MDTypography fontWeight="medium">&#8377; {fare}</MDTypography>
+          <MDTypography fontWeight="medium">Ksh {fare}</MDTypography>
         </Grid>
       </Grid>
     </MDBox>

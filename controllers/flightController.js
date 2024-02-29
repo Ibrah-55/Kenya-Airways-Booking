@@ -19,18 +19,18 @@ export const getFlightsBetweenAirports = catchAsync(async (req, res, next) => {
   const query = `CALL SHOW_FLIGHTS(
     '${cid}', 
     '${req.params.srcId}', 
-    '${req.params.destId}',
-    NOW() -- or any other default value you want to use
+    '${req.params.destId}', 
+    '${req.params.dateOfDeparture}'
   ) `;
-  
   const resp = await db.executeQuery(query);
-  console.log('Query Response:', resp);
+  
 
   res.status(200).json({
     status: "success getflightsbetweenairports",
     data: resp.data[0],
   });
   console.log(resp.data[0])
+
 });
 
 

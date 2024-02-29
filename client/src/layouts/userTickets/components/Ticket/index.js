@@ -539,7 +539,7 @@ function Ticket({
           FARE&nbsp;-&nbsp;
         </MDTypography>
         <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
-          &#8377; {`${fare}`}
+          Ksh {`${fare}`}
         </MDTypography>
       </Grid>
       <Grid
@@ -597,7 +597,7 @@ function Ticket({
               color="secondary"
               fontSize="medium"
             >
-              &#8377; {`${reimbursedAmount}`}
+            Ksh{`${reimbursedAmount}`}
             </MDTypography>
           </Grid>
         </>

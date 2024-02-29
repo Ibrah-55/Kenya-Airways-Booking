@@ -38,7 +38,7 @@ function TicketInformation({ isUpcoming }) {
     axios
       .get(`airport`)
       .then((res) => {
-        // console.log(res);
+        console.log("This data: ",res);
         const offsetData = new Map();
         res.data.data.forEach((airport) => {
           offsetData.set(airport.AIRPORT_ID, airport.OFFSET);

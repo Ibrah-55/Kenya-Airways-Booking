@@ -17,7 +17,7 @@ import moment from "moment";
 import backgroundImage from "assets/images/sign-in/17.jpg";
 import MDButton from "components/MDButton";
 
-import TicketInformation from "../../../tickets/components/TicketInformation";
+import TicketInformation from "layouts/tickets/components/TicketInformation";
 import Autocomplete from "@mui/material/Autocomplete";
 import Spinner from "components/Spinner";
 import axios from "axiosInstance";
@@ -65,16 +65,19 @@ function Header({ children, airports }) {
         ).format("YYYY-MM-DD")}`
       )
       .then((res) => {
-        console.log("API Response:", res.data);
-  
-        setFlights(res.data.data);
-  
+        if (res && res.data) {
+          console.log("API Response:", res.data);
+          setFlights(res.data.data);
+        } else {
+          console.error("Invalid response:", res);
+        }
+      
         setLoading(false);
-        console.log(res);
       })
+      
       .catch((err) => {
         setLoading(false);
-        console.log(err);
+        console.error("Error during request:", err);
       });
   };
   
@@ -336,7 +339,7 @@ function Header({ children, airports }) {
           </MDBox>
         ) : (
           <>
-            <Typography variant="h4">Flight Details: {console.log()}</Typography>
+            <Typography variant="h4"></Typography>
             
             <TicketInformation
               flights={flights}

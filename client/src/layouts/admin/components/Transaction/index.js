@@ -3,7 +3,7 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
-import { Chip, Stack, Grid, Divider, IconButton } from "@mui/material";
+import { Chip, Stack, Grid, Divider, MenuItem, Select, InputLabel, FormControl, IconButton } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Collapse from "@mui/material/Collapse";
@@ -35,6 +35,11 @@ function Transaction({
   const [leaseExpiryDate, setLeaseExpiryDate] = useState(leaseExpiry);
   const [fare, setFare] = useState(baseFare);
   const { canWrite } = useContext(AuthContext);
+  const [selectedLevel, setSelectedLevel] = useState('economy');
+
+  const handleLevelChange = (event) => {
+    setSelectedLevel(event.target.value);
+  };
 
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
@@ -117,21 +122,31 @@ function Transaction({
         </MDTypography>
       </Grid>
       <Grid
-        item
-        xs={12}
-        sm={6}
-        md={4}
-        display="flex"
-        alignItems="center"
-        justifyContent={"center"}
-      >
-        <MDTypography fontWeight="bold" fontSize="medium">
-          Departure Time -&nbsp;
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <FormControl>
+      <MDTypography fontWeight="bold" fontSize="medium">
+          Seat Class -&nbsp;
         </MDTypography>
-        <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
-          {deptTime.substring(0, 5)}
-        </MDTypography>
-      </Grid>
+        <Select
+          labelId="level-label"
+          id="level-select"
+          value={selectedLevel}
+          label="Level"
+          onChange={handleLevelChange}
+        >
+          <MenuItem value={'economy'}>Economy</MenuItem>
+          <MenuItem value={'firstClass'}>First Class</MenuItem>
+          <MenuItem value={'vvip'}>VVIP</MenuItem>
+        </Select>
+      </FormControl>
+    </Grid>
       <Grid
         item
         xs={12}
@@ -208,7 +223,7 @@ function Transaction({
           Base Fare -&nbsp;
         </MDTypography>
         <MDTypography fontWeight="normal" color="secondary" fontSize="medium">
-          &#8377; {fare}
+         {fare}
         </MDTypography>
         &nbsp;
         {canWrite && (
