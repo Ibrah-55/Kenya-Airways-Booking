@@ -6,7 +6,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import MDButton from "components/MDButton";
-import { EventSeat, EventSeatOutlined } from "@mui/icons-material";
+import { EventSeat,  AirlineSeatFlatAngledIcon,FlightClassIcon, EventSeatOutlined } from "@mui/icons-material";
 import { Divider,FormControl,MenuItem, Select, IconButton } from "@mui/material";
 import MDInput from "components/MDInput";
 import { useEffect, useState, useContext } from "react";
@@ -25,9 +25,20 @@ const Booking = () => {
   const [cost, setCost] = useState(0);
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [selectedLevel, setSelectedLevel] = useState('economy');
+  const [selectedLevel, setSelectedLevel] = useState('economy'); 
+  const [numRows, setNumRows] = useState(location?.state?.numRows); 
+  
   const handleLevelChange = (event) => {
     setSelectedLevel(event.target.value);
+  
+    // Update the number of rows based on the selected seat class
+    if (event.target.value === 'economy') {
+      setNumRows(location?.state?.numRows); // Use the default number of rows for economy
+    } else if (event.target.value === 'firstClass') {
+      setNumRows(5); // Set the number of rows for first class
+    } else if (event.target.value === 'vvip') {
+      setNumRows(3); // Set the number of rows for vvip
+    }
   };
 
   const disablePay = () => {
@@ -190,82 +201,83 @@ const Booking = () => {
       sx={{
         backgroundColor: "#F8F8F8",
         borderRadius: "5%",
-        // boxShadow: "20px 20px",
       }}
     >
       <Grid item display="flex" spacing={1} mt={3}>
         <MDTypography fontWeight="bold">Reserve your seat</MDTypography>
       </Grid>
       <Grid
-      item
-      xs={12}
-      sm={6}
-      md={4}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <FormControl>
-      <MDTypography fontWeight="bold" fontSize="medium">
-          Seat Class -&nbsp;
-        </MDTypography>
-        <Select
-          labelId="level-label"
-          id="level-select"
-          value={selectedLevel}
-          label="Level"
-          onChange={handleLevelChange}
-        >
-          <MenuItem value={'economy'}>Economy</MenuItem>
-          <MenuItem value={'firstClass'}>First Class</MenuItem>
-          <MenuItem value={'vvip'}>VVIP</MenuItem>
-        </Select>
-      </FormControl>
-    </Grid>
-
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <FormControl>
+          <MDTypography fontWeight="bold" fontSize="medium">
+            Seat Class -&nbsp;
+          </MDTypography>
+          <Select
+            labelId="level-label"
+            id="level-select"
+            value={selectedLevel}
+            label="Level"
+            onChange={handleLevelChange}
+          >
+            <MenuItem value={'economy'}>Economy</MenuItem>
+            <MenuItem value={'firstClass'}>First Class</MenuItem>
+            <MenuItem value={'vvip'}>VVIP</MenuItem>
+          </Select>
+        </FormControl>
+      </Grid>
+  
       {seatData.map((dataRow, rowIdx) => (
-        <Grid item display="flex" spacing={1} key={rowIdx}>
-          {dataRow.map((data, colIdx) => (
-            <IconButton
-              key={(rowIdx, colIdx)}
-              disabled={data === 2 ? true : false}
-              onClick={() => handleSeatClick(rowIdx, colIdx)}
-            >
-              {data === 0 ? (
-                <EventSeatOutlined
-                  fontSize="medium"
-                  color={
-                    data === 2
-                      ? "disabled"
-                      : colIdx === 0 || colIdx === dataRow.length - 1
-                      ? "dark"
-                      : "muted"
-                  }
-                />
-              ) : (
-                <EventSeat
-                  fontSize="medium"
-                  color={
-                    data === 2
-                      ? "disabled"
-                      : colIdx === 0 || colIdx === dataRow.length - 1
-                      ? "dark"
-                      : "muted"
-                  }
-                />
-              )}
-            </IconButton>
-          ))}
-        </Grid>
+        rowIdx < numRows && (
+          <Grid item display="flex" spacing={1} key={rowIdx}>
+            {dataRow.map((data, colIdx) => (
+              <IconButton
+                key={(rowIdx, colIdx)}
+                disabled={data === 2 ? true : false}
+                onClick={() => handleSeatClick(rowIdx, colIdx)}
+              >
+                {data === 0 ? (
+                  <EventSeatOutlined
+                    fontSize="medium"
+                    color={
+                      data === 2
+                        ? "disabled"
+                        : colIdx === 0 || colIdx === dataRow.length - 1
+                        ? "dark"
+                        : "muted"
+                    }
+                  />
+                ) : (
+                  <EventSeat
+                    fontSize="medium"
+                    color={
+                      data === 2
+                        ? "disabled"
+                        : colIdx === 0 || colIdx === dataRow.length - 1
+                        ? "dark"
+                        : "muted"
+                    }
+                  />
+                )}
+              </IconButton>
+            ))}
+          </Grid>
+        )
       ))}
     </Grid>
   );
-
+  
   const passengerDetailsInputs = (
     <Card id="delete-account">
       <MDBox
-        pt={2}
-        px={2}
+        pt={4}
+        px={4}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -298,7 +310,9 @@ const Booking = () => {
               <Grid container item xs={12} md={12} key={idx} spacing={1}>
                 <Grid item xs={2} sm={2} display={"flex"} alignItems={"center"}>
                   <MDTypography>{el.seatNumber}</MDTypography>
+
                 </Grid>
+                
                 <Grid item xs={3} sm={3}>
                   <MDInput
                     name="age"
@@ -478,7 +492,7 @@ const Booking = () => {
                     justifyContent={"flex-end"}
                   >
                     <MDTypography color="error" variant={"caption"}>
-                      * 150 extra charge for window seat
+                      * ksh3000 extra charge for window seat
                     </MDTypography>
                   </Grid>
                 </Grid>

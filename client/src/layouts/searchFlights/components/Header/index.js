@@ -351,9 +351,8 @@ function Header({ children, airports }) {
               destID={destination?.AIRPORT_ID}
               cancelFlight={cancelFlight}
               addDelay={addDelay}
-              date={moment(dateValue).format()}
-              srcOffset={source?.OFFSET}
-              destOffset={destination?.OFFSET}
+              date={moment(dateValue).format("YYYY-MM-DD")}
+          
             />
           </>
         )}
