@@ -132,7 +132,7 @@ function Transaction({
     >
       <FormControl>
       <MDTypography fontWeight="bold" fontSize="medium">
-          Seat Class -&nbsp;
+         Seat Class -&nbsp;
         </MDTypography>
         <Select
           labelId="level-label"

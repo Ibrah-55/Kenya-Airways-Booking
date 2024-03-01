@@ -81,6 +81,7 @@ const updateCustomer = catchAsync(async (req, res, next) => {
 });
 
 const getCustomerUpcomingTickets = catchAsync(async (req, res, next) => {
+  
   const resp = await db.executeQuery(
     `CALL SHOW_TICKETS_BY_CUSTOMER_ID('${req.params.id}', 1)`
   );

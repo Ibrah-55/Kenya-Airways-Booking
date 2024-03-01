@@ -26,6 +26,8 @@ const Booking = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [selectedLevel, setSelectedLevel] = useState('economy'); 
+  const [snackbarMsg, setSnackbarMsg] = useState("");
+
   const [numRows, setNumRows] = useState(location?.state?.numRows); 
   
   const handleLevelChange = (event) => {
@@ -142,6 +144,7 @@ const Booking = () => {
       };
     }
     console.log(payloadContent);
+  
     axios
       .post(`ticket/`, {
         TICKETS: [...payloadContent],
@@ -151,6 +154,9 @@ const Booking = () => {
       .then((res) => {
         setLoading(false);
         console.log(res);
+        setSnackbarMsg("Ticket Booked Successfully.");
+  
+        // Move the navigation inside the then block
         navigate("/upcoming-journeys", { state: {} });
       })
       .catch((err) => {
@@ -158,6 +164,7 @@ const Booking = () => {
         console.log(err);
       });
   };
+  
 
   useEffect(() => {
     // fetchBookedSeatData();
@@ -217,7 +224,7 @@ const Booking = () => {
       >
         <FormControl>
           <MDTypography fontWeight="bold" fontSize="medium">
-            Seat Class -&nbsp;
+            - Class -&nbsp;
           </MDTypography>
           <Select
             labelId="level-label"

@@ -65,7 +65,7 @@ function TicketInformation(props) {
             alignItems: "center",
           }}
         >
-          <MDTypography variant="h3">No flights on that route for the specified time.</MDTypography>
+          <MDTypography variant="h3">Kenya Airways</MDTypography>
           <MDTypography variant="h4" fontWeight="light">
 The Pride Of Africa   
        </MDTypography>
