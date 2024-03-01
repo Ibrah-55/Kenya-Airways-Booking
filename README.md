@@ -38,6 +38,9 @@
 <div align="center"> 
   <img src="/client/src/assets/images/presentation/apple-icon.png" width="30%"></img> <img src="/client/src/assets/images/presentation/pr2.png" width="30%"></img>  <img src="/client/src/assets/images/presentation/pr3.png" width="30%"></img> <img src="/client/src/assets/images/presentation/Screenshot from 2024-03-01 20-37-37.png" width="30%"></img> 
   <img src="/client/src/assets/images/presentation/Screenshot from 2024-03-01 20-39-35.png" width="30%"></img> 
+    <img src="/client/src/assets/images/presentation/pr4.png" width="30%"></img> 
+  <img src="/client/src/assets/images/presentation/pr5.png" width="30%"></img> 
+
 </div>
 
 <!-- TechStack -->
