@@ -9,9 +9,7 @@
     designed and built by Jarvis
   </p>
 
-   <p>
-    <a href="presentation.pdf">Presentation</a>
-  </p>
+  
   
 </div>
 
@@ -20,7 +18,6 @@
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-  - [Screenshots](#camera-screenshots)
   - [Tech Stack](#space_invader-tech-stack)
   - [Features](#dart-features)
   - [Schema](#bricks-schema)
@@ -35,13 +32,6 @@
 
 ## :star2: About the Project
 
-<!-- Screenshots -->
-
-### :camera: Screenshots
-
-<div align="center"> 
-  <img src="https://user-images.githubusercontent.com/62535734/164721781-69dcd728-baaa-43c5-adf0-8ac76c003bb7.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/62535734/164731324-e0458e1b-2084-4928-bea7-4ca0156c88b3.png" width="30%"></img>  <img src="https://user-images.githubusercontent.com/62535734/164721211-7da15af4-7f70-416f-b3c4-5be80b80e83f.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/62535734/164722092-fc80a37e-598d-43b9-baca-d0762408bb18.png" width="30%"></img> 
-</div>
 
 <!-- TechStack -->
 
