@@ -16,7 +16,6 @@ import Collapse from "@mui/material/Collapse";
 import { useState, useEffect } from "react";
 import Icon from "@mui/material/Icon";
 import backgroundImage from "assets/images/sign-in/11.jpg";
-import logoName from "assets/images/logos/logo-name.png";
 import { AccessTime } from "@mui/icons-material";
 
 function Ticket({
@@ -366,8 +365,8 @@ function Ticket({
       <div class="card_heading">
         <div class="card_logo">
           <img
-            src="${logoName}"
-            class="monkeair"
+            src="/assets/images/kq.png"
+            class="kenyaairways"
           />
         </div>
         <img
