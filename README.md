@@ -9,8 +9,6 @@
     designed and built by Jarvis
   </p>
 
-  
-  
 </div>
 
 <!-- Table of Contents -->
@@ -18,6 +16,7 @@
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
+  - [Screenshots](#camera-screenshots)
   - [Tech Stack](#space_invader-tech-stack)
   - [Features](#dart-features)
   - [Schema](#bricks-schema)
@@ -32,6 +31,14 @@
 
 ## :star2: About the Project
 
+<!-- Screenshots -->
+
+### :camera: Screenshots
+
+<div align="center"> 
+  <img src="/client/src/assets/images/presentation/apple-icon.png" width="30%"></img> <img src="/client/src/assets/images/presentation/pr2.png" width="30%"></img>  <img src="/client/src/assets/images/presentation/pr3.png" width="30%"></img> <img src="/client/src/assets/images/presentation/Screenshot from 2024-03-01 20-37-37.png" width="30%"></img> 
+  <img src="/client/src/assets/images/presentation/Screenshot from 2024-03-01 20-39-35.png" width="30%"></img> 
+</div>
 
 <!-- TechStack -->
 
