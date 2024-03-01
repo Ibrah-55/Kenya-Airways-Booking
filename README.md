@@ -172,13 +172,13 @@ This project uses `npm` as package manager
 Clone the project
 
 ```bash
-  git clone https://github.com/anand-2020/airline-booking-management-system
+  git clone https://github.com/Ibrah-55/Kenya-Airways-Booking
 ```
 
 Go to the project directory
 
 ```bash
-  cd airline-booking-management-system
+  cd airlineBooking
 ```
 
 Install server dependencies
